@@ -10,6 +10,7 @@ describe('models/task', function () {
   beforeEach(function () {
     this.User = require('../../models').User;
     this.Task = require('../../models').Task;
+    this.Msg = require('../../models').Msg;
   });
 
   describe('create', function () {
@@ -20,5 +21,12 @@ describe('models/task', function () {
         });
       });
     });
+      it('creates a Msg', function () {
+          return this.User.create({ username: 'johndoe' }).bind(this).then(function (user) {
+              return this.Msg.create({ message: 'mssage', UserId: user.id }).then(function (msg) {
+                  expect(msg.message).to.equal('mssage');
+              });
+          });
+      });
   });
 });

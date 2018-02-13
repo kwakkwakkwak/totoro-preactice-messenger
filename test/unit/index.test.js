@@ -12,4 +12,9 @@ describe('models/index', function () {
     var models = require('../../models');
     expect(models.User).to.be.ok();
   });
+
+    it('returns the msg model', function () {
+        var models = require('../../models');
+        expect(models.Msg).to.be.ok();
+    });
 });
